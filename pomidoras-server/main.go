@@ -143,7 +143,7 @@ func (t *Timer) GetStatus() TimerStatus {
 
 // sendNotification sends a desktop notification using notify-send.
 func (t *Timer) sendNotification(title, message string) {
-	cmd := exec.Command("notify-send", title, message)
+	cmd := exec.Command("notify-send", "-u", "critical", title, message)
 	err := cmd.Run()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error sending notification: %v\n", err)
